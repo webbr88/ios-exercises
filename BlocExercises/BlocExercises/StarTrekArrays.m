@@ -11,23 +11,36 @@
 @implementation StarTrekArrays
 
 - (NSArray *) arrayOfStarTrekCharactersFromString:(NSString *)characterString {
-    /* WORK HERE */
-    return @[];
+    NSArray *myStarTrek = [characterString componentsSeparatedByString:@";"];
+    return myStarTrek;
 }
 
 - (NSString *) stringOfStarTrekCharactersFromArray:(NSArray *)characterArray {
-    /* WORK HERE */
-    return @"";
+    NSString *myStarTrek2 = [characterArray componentsJoinedByString:@";"];
+    return myStarTrek2;
 }
 
 - (NSArray *) alphabeticallySortedStarTrekCharactersFromArray:(NSArray *)characterArray {
-    /* WORK HERE */
-    return @[];
+    NSMutableArray *characterArray2 =[[NSMutableArray alloc] initWithArray:characterArray];
+
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
+    [characterArray2 sortUsingDescriptors:@[sortDescriptor]];
+    return characterArray2;
 }
 
 - (BOOL) characterArrayContainsWorf:(NSArray *)characterArray {
-    /* WORK HERE */
-    return NO;
+    NSString *myStarTrek3 = [characterArray componentsJoinedByString:@";"];
+    NSRange worfRange = [myStarTrek3 rangeOfString:@"worf" options:NSCaseInsensitiveSearch];
+    NSLog(@"worfRange Range is: %@", NSStringFromRange(worfRange));
+    bool warf;
+    if (worfRange.length >=4) {
+        warf = YES;
+    }
+    
+    else{
+        warf = NO;
+    }
+    return warf;
 }
 
 @end
