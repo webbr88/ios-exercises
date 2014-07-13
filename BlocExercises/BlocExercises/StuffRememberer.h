@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface StuffRememberer : NSObject
-
+@property (nonatomic, strong) NSMutableArray *dataToRemember;  // I do not understand why this needs to be a strong. Weak worked for the 'arrayYouShouldRemember' but not 'arrayYouShouldCopy'
+@property CGFloat storedFloat;
 /*
  
  In this class, there are three pairs of methods.

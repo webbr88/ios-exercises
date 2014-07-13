@@ -11,30 +11,31 @@
 @implementation StuffRememberer
 
 - (void) rememberThisArrayForLater:(NSMutableArray *)arrayToRemember {
-    /* WORK HERE */
+    self.dataToRemember = arrayToRemember;  
 }
 
 - (void) copyThisArrayForLater:(NSMutableArray *)arrayToRemember {
-    /* WORK HERE */
+    //self.dataToRemember = [NSMutableArray arrayWithObjects:arrayToRemember, nil];
+    self.dataToRemember = [arrayToRemember copy];
 }
 
 - (void) rememberThisFloatForLater:(CGFloat)floatToRemember {
-    /* WORK HERE */
+    self.storedFloat = floatToRemember;
 }
 
 - (NSMutableArray *) arrayYouShouldRemember {
-    /* WORK HERE */
-    return [@[] mutableCopy];
+    
+    return self.dataToRemember;
+    //Why did we have an issue with syntax [self.dataToRemember mutablecopy]
 }
 
 - (NSMutableArray *) arrayYouShouldCopy {
-    /* WORK HERE */
-    return [@[] mutableCopy];
+    return [self.dataToRemember mutableCopy];
 }
 
 - (CGFloat) floatYouShouldRemember {
-    /* WORK HERE */
-    return 0.0f;
+
+    return self.storedFloat;
 }
 
 @end
